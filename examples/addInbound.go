@@ -5,10 +5,12 @@ import (
 	"github.com/xtls/xray-core/app/proxyman"
 	"github.com/xtls/xray-core/app/proxyman/command"
 	"github.com/xtls/xray-core/common/net"
+	protocol "github.com/xtls/xray-core/common/protocol"
 	"github.com/xtls/xray-core/common/protocol/tls/cert"
 	"github.com/xtls/xray-core/common/serial"
 	"github.com/xtls/xray-core/core"
 	_ "github.com/xtls/xray-core/infra/conf"
+	"github.com/xtls/xray-core/proxy/vmess"
 	//ssInbound "github.com/xtls/xray-core/proxy/shadowsocks"
 	//trojanInbound "github.com/xtls/xray-core/proxy/trojan"
 	vmessInbound "github.com/xtls/xray-core/proxy/vmess/inbound"
@@ -85,7 +87,24 @@ func addInbound(client command.HandlerServiceClient) error {
 					},
 				},
 			}),
-			ProxySettings: serial.ToTypedMessage(&vmessInbound.Config{}),
+			/*
+				代理设置, 请到 github.com/xtls/xray-core/proxy/ 寻找你想要添加的入站代理类型
+				某些类型需要区分 Inbound 与 Outbound 的配置,
+				需要区分使用 github.com/xtls/xray-core/proxy/PROXYTYPE/inbound/config.pb.go 中的 Config 结构
+				无须区分的使用 github.com/xtls/xray-core/proxy/PROXYTYPE/config.pb.go 的 ServerConfig 结构
+			*/
+			ProxySettings: serial.ToTypedMessage(&vmessInbound.Config{
+				User: []*protocol.User{
+					{
+						Level: 0,
+						Email: "love@xray.com",
+						Account: serial.ToTypedMessage(&vmess.Account{
+							Id:      "10354ac4-9ec1-4864-ba3e-f5fd35869ef8",
+							AlterId: 1,
+						}),
+					},
+				},
+			}),
 		},
 	})
 

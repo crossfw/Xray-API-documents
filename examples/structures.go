@@ -13,6 +13,23 @@ type BaseConfig struct {
 	APIPort    uint16
 }
 
+type UserInfo struct {
+	// For VMess & Trojan
+	Uuid string
+	// For VMess
+	AlertId uint32
+	// Level will use for speed limit
+	Level uint32
+	// Which Inbound will add this user
+	InTag string
+	// User's Email, it's a unique identifier for users
+	Email string
+	// For ShadowSocks
+	CipherType string
+	// For ShadowSocks
+	Password string
+}
+
 type XrayController struct {
 	HsClient handlerService.HandlerServiceClient
 	SsClient statsService.StatsServiceClient

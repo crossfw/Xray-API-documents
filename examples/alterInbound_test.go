@@ -2,12 +2,21 @@ package examples
 
 import "testing"
 
-func TestAddInbound(t *testing.T) {
+func TestAlertInbound(t *testing.T) {
 	var (
 		xrayCtl *XrayController
 		cfg     = &BaseConfig{
 			APIAddress: "127.0.0.1",
 			APIPort:    10085,
+		}
+		user = UserInfo{
+			Uuid:       "10354ac4-9ec1-4864-ba3e-f5fd35869ef8",
+			AlertId:    0,
+			Level:      0,
+			InTag:      "proxy0",
+			Email:      "love@xray.com",
+			CipherType: "aes-256-gcm",
+			Password:   "xrayisthebest",
 		}
 	)
 	xrayCtl = new(XrayController)
@@ -16,7 +25,7 @@ func TestAddInbound(t *testing.T) {
 	if err != nil {
 		t.Errorf("Failed %s", err)
 	}
-	err = addInbound(xrayCtl.HsClient)
+	err = addVmessUser(xrayCtl.HsClient, &user)
 	if err != nil {
 		t.Errorf("Failed %s", err)
 	}

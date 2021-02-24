@@ -2,13 +2,14 @@ package examples
 
 import "testing"
 
-func TestAddInbound(t *testing.T) {
+func TestRemoveInbound(t *testing.T) {
 	var (
 		xrayCtl *XrayController
 		cfg     = &BaseConfig{
 			APIAddress: "127.0.0.1",
 			APIPort:    10085,
 		}
+		tag = "proxy0"
 	)
 	xrayCtl = new(XrayController)
 	err := xrayCtl.Init(cfg)
@@ -16,7 +17,7 @@ func TestAddInbound(t *testing.T) {
 	if err != nil {
 		t.Errorf("Failed %s", err)
 	}
-	err = addInbound(xrayCtl.HsClient)
+	err = removeInbound(xrayCtl.HsClient, tag)
 	if err != nil {
 		t.Errorf("Failed %s", err)
 	}
