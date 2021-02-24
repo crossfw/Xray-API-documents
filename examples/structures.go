@@ -8,6 +8,7 @@ import (
 	"google.golang.org/grpc"
 )
 
+// Xray API 监听地址及端口
 type BaseConfig struct {
 	APIAddress string
 	APIPort    uint16
@@ -30,6 +31,7 @@ type UserInfo struct {
 	Password string
 }
 
+// Xray API 操作
 type XrayController struct {
 	HsClient handlerService.HandlerServiceClient
 	SsClient statsService.StatsServiceClient
