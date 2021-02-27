@@ -19,8 +19,7 @@ type UserInfo struct {
 	Uuid string
 	// For VMess
 	AlertId uint32
-	// Level will use for speed limit
-	Level uint32
+	Level   uint32
 	// Which Inbound will add this user
 	InTag string
 	// User's Email, it's a unique identifier for users

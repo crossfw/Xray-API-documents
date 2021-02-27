@@ -20,3 +20,4 @@ AlterOutbound()
 ## AlterInbound
 在一个入站代理中添加一个用户(VMess, VLESS, Trojan, ShadowSocks)
 
+> Outbound 同理
