@@ -2,7 +2,6 @@ package examples
 
 import (
 	"context"
-	"fmt"
 	statsService "github.com/xtls/xray-core/app/stats/command"
 )
 
@@ -29,7 +28,6 @@ func queryTraffic(c statsService.StatsServiceClient, ptn string, reset bool) (tr
 	}
 	// Get traffic data
 	stat := resp.GetStat()
-	fmt.Println(stat)
 	// 判断返回 是否成功
 	// 返回样例, value 值是我们需要的: [name:"inbound>>>proxy0>>>traffic>>>downlink" value:348789]
 	if len(stat) != 0 {
