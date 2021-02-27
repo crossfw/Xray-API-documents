@@ -27,7 +27,7 @@ func addInbound(client command.HandlerServiceClient) error {
 			Tag: "proxy0",
 			ReceiverSettings: serial.ToTypedMessage(&proxyman.ReceiverConfig{
 				// 监听端口 12345
-				PortRange: net.SinglePortRange(net.Port(12345)),
+				PortRange: net.SinglePortRange(net.Port(1235)),
 				// 监听地址, 默认0.0.0.0
 				Listen: net.NewIPOrDomain(net.AnyIP),
 				// 流量探测
@@ -46,12 +46,14 @@ func addInbound(client command.HandlerServiceClient) error {
 						"MKCP",
 						"WebSocket",
 						"HTTP",
-						"DomainSocket",
+						"DomainSocket"
+						使用时请一律小写
+
 					*/
-					ProtocolName: "WebSocket",
+					ProtocolName: "websocket",
 					TransportSettings: []*internet.TransportConfig{
 						{
-							ProtocolName: "WebSocket",
+							ProtocolName: "websocket",
 							/*
 								选定传输方式后,请去 github.com/xtls/xray-core/transport/internet 下你选定方式的文件夹中导入config结构
 								如选定WebSocket则需要使用 github.com/xtls/xray-core/transport/internet/websocket/config.pb.go 中的 Config struct
