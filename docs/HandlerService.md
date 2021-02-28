@@ -12,12 +12,12 @@ AlterOutbound()
 ```
 
 ## AddInbound
-此方法使用 InboundHandlerConfig 配置增加一个入站.
+此方法使用 InboundHandlerConfig 配置增加一个入站。
 
 ## RemoveInbound
-移除一个入站, 使用Tag区分
+移除一个入站，使用 Tag 区分。
 
 ## AlterInbound
-在一个入站代理中添加一个用户(VMess, VLESS, Trojan, ShadowSocks)
+在一个入站代理中添加一个用户 (VMess, VLESS, Trojan, ShadowSocks)
 
 > Outbound 同理

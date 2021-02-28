@@ -27,7 +27,7 @@ func addInbound(client command.HandlerServiceClient) error {
 			Tag: "proxy0",
 			ReceiverSettings: serial.ToTypedMessage(&proxyman.ReceiverConfig{
 				// 监听端口 12345
-				PortRange: net.SinglePortRange(net.Port(1235)),
+				PortRange: net.SinglePortRange(net.Port(12360)),
 				// 监听地址, 默认0.0.0.0
 				Listen: net.NewIPOrDomain(net.AnyIP),
 				// 流量探测
@@ -40,7 +40,7 @@ func addInbound(client command.HandlerServiceClient) error {
 					/*
 						传输方式名称
 						请自行在 github.com/xtls/xray-core/transport/internet/config.pb.go 中寻找支持的协议
-						截至1.3.0 目前支持
+						截至 1.3.0 目前支持
 						"TCP",
 						"UDP",
 						"MKCP",

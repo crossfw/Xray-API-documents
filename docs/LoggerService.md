@@ -6,4 +6,4 @@
 restartLogger()
 ```
 ## restartLogger
-重启日志服务
+重启日志服务。
