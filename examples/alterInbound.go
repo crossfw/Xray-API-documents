@@ -19,7 +19,7 @@ func addVmessUser(client command.HandlerServiceClient, user *UserInfo) error {
 		// 添加用户操作 github.com/xtls/xray-core/app/proxyman/command 中的 AddUserOperation
 		Operation: serial.ToTypedMessage(&command.AddUserOperation{
 			User: &protocol.User{
-				// 用户信息(Level和Email为所有入站用户都需要的信息)
+				// 用户信息（Level和Email为所有入站用户都需要的信息）
 				Level: user.Level,
 				Email: user.Email,
 				/* 	不同代理类型使用不同的用户信息结构

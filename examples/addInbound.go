@@ -57,7 +57,7 @@ func addInbound(client command.HandlerServiceClient) error {
 							/*
 								选定传输方式后,请去 github.com/xtls/xray-core/transport/internet 下你选定方式的文件夹中导入config结构
 								如选定WebSocket则需要使用 github.com/xtls/xray-core/transport/internet/websocket/config.pb.go 中的 Config struct
-								结构内容请自行翻看代码(Ctrl + 左键)
+								结构内容请自行翻看代码（Ctrl + 左键）
 							*/
 							Settings: serial.ToTypedMessage(&websocket.Config{
 								Path: "/web",
